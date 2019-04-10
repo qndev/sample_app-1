@@ -8,9 +8,11 @@ class User < ApplicationRecord
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false}
   validates :password, presence: true,
-                       length: {minimum: Settings.user.length_of_password}
+                       length: {minimum: Settings.user.length_of_password},
+                       allow_nil: true
   before_save :downcase_email
   has_secure_password
+  paginates_per Settings.user.per_page
 
   def downcase_email
     email.downcase!
@@ -25,10 +27,10 @@ class User < ApplicationRecord
       end
       BCrypt::Password.create(string, cost: cost)
     end
-  end
 
-  def self.new_token
-    SecureRandom.urlsafe_base64
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
 
   def remember
@@ -43,5 +45,9 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def current_user? user
+    user == current_user
   end
 end

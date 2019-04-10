@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       log_in user
       remember_password user
-      redirect_to user # user_url(user)
+      redirect_back_or user
     else
       flash[:danger] = t"static_pages.login.error_message"
       render :new

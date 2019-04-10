@@ -4,3 +4,6 @@ user:
   length_of_password: 6
   gravatar_size: 80
   remember_user: 1
+  per_page: 30
+gravatar:
+  size: 50
