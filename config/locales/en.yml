@@ -35,6 +35,12 @@ en:
     home:
       title: "Home"
       header_title: "Sample App"
+      welcome: "Welcome to the Sample App"
+      content_html: '<h1>Welcome to the Sample App</h1>
+      <h2>This is the home page for the
+      <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+      </h2>'
     about:
       title: "About"
       content_html: 'The <a href="https://wwwrailstutorial.org/"><em>Ruby on Rails
@@ -54,6 +60,28 @@ en:
       title: "Contact"
       content_html: 'Contact the Ruby on Rails Tutorial about the sample app at the
       <a href="https://www.railstutorial.org/contact">contact page</a>.'
+    footer:
+      title_link: "News"
+      content_html: 'The <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+      by <a href="http://www.michaelhartl.com/">Michael Hartl</a>'
+      link: "http://news.railstutorial.org/"
+    login:
+      title: "Log in"
+    users:
+      new:
+        title: "Sign up"
+        sign_up: "Sign up now!"
+        content_html: '<p>This will be a signup page for new users.</p>'
+        log_in: "Log in"
+        log_out: "Log out"
+        profile: "Profile"
+        setting: "Settings"
+        user: "Users"
+        edit: "Edit user"
+        create_account: "Create my account"
+        save_edit: "Save changes"
+        update_profile: "Update your profile"
+        user_index: "All users"
   base_title: "Ruby on Rails Tutorial Sample App"
   book_title: "Ruby on Rails Tutorial"
   rails_help: "Rails Tutorial help section"
