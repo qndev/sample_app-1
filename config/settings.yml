@@ -1,0 +1,4 @@
+user:
+  length_of_name: 50
+  length_of_email: 255
+  length_of_password: 6
