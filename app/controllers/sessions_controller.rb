@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       remember_password user
       redirect_back_or user
     else
-      flash[:danger] = t"static_pages.login.error_message"
+      flash[:danger] = t "static_pages.login.error_message"
       render :new
     end
   end

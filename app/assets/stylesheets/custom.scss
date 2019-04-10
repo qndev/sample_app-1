@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "color";
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -46,7 +47,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $gray-light;
 }
 
 p {
@@ -60,14 +61,14 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: $color_white;
   text-transform: uppercase;
   padding-top: 9px;
   font-weight: bold;
 }
 
 #logo {
-  color: #fff;
+  color: $color_white;
   text-decoration: none;
 }
 
@@ -80,16 +81,16 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
+  border-top: 1px solid $gray_footer;
+  color: gray;
 }
 
 footer a {
-  color: #555;
+  color: $color_footer;
 }
 
 footer a:hover {
-  color: #222;
+  color: $color_footer_hover;
 }
 
 footer small {
@@ -156,7 +157,7 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
+  border: 1px solid $form_color;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
@@ -167,9 +168,9 @@ input {
 }
 
 #error_explanation {
-  color: red;
+  color: $color_error_explanation;
   ul {
-    color: red;
+    color: $color_error_explanation;
     margin: 0 0 30px 0;
   }
 }
@@ -204,5 +205,52 @@ input {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid $gray_micropost;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
   }
 }

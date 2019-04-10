@@ -7,3 +7,10 @@ user:
   per_page: 30
 gravatar:
   size: 50
+  remember_user: 1
+micropost:
+  leng: 140
+  avatar_size: 50
+image_size: 5
+height: 400
+width: 400

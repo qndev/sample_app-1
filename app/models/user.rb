@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   attr_accessor :remember_token
+  has_many :microposts, dependent: :destroy
   validates :name,  presence: true,
                     length: {maximum: Settings.user.length_of_name}
   validates :email, presence: true,
@@ -14,9 +15,7 @@ class User < ApplicationRecord
   has_secure_password
   paginates_per Settings.user.per_page
 
-  def downcase_email
-    email.downcase!
-  end
+  default_scope ->{order(created_at: :desc)}
 
   class << self
     def digest string
@@ -25,7 +24,7 @@ class User < ApplicationRecord
       else
         BCrypt::Engine.cost
       end
-      BCrypt::Password.create(string, cost: cost)
+      BCrypt::Password.create string, cost: cost
     end
 
     def new_token
@@ -34,20 +33,31 @@ class User < ApplicationRecord
   end
 
   def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
+    @remember_token = User.new_token
+    update remember_digest: User.digest(remember_token)
   end
 
   def authenticated? remember_token
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    return false unless remember_digest
+    BCrypt::Password.new(remember_digest).is_password? remember_token
   end
 
   def forget
-    update_attribute(:remember_digest, nil)
+    update :remember_digest, nil
   end
 
-  def current_user? user
-    user == current_user
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
+  private
+
+  def downcase_email
+    email.downcase!
+  end
+
+  def create_activation_digest
+    @activation_token = User.new_token
+    self.activation_digest = User.digest activation_token
   end
 end
