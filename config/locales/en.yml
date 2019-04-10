@@ -67,6 +67,7 @@ en:
       link: "http://news.railstutorial.org/"
     login:
       title: "Log in"
+      error_message: "Invalid email/password combination"
     users:
       new:
         title: "Sign up"
@@ -87,6 +88,8 @@ en:
         password: "Password"
         confirm: "Confirmation"
         button_new: "Create my account"
+        user_exist: "New user?"
+        account_menu: "Account"
       error_show: "User not found!"
   error_message: "The form contains"
   base_title: "Ruby on Rails Tutorial Sample App"
