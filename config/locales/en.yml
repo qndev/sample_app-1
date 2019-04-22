@@ -83,6 +83,13 @@ en:
         save_edit: "Save changes"
         update_profile: "Update your profile"
         user_index: "All users"
+        profile_updated: "Profile updated"
+        login_require: "Please log in."
+      index: "All users"
+      delete:
+        delete_user: "delete"
+        confirm: "You sure?"
+        deleted: "User deleted"
   base_title: "Ruby on Rails Tutorial Sample App"
   book_title: "Ruby on Rails Tutorial"
   rails_help: "Rails Tutorial help section"
