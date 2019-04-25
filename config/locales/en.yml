@@ -91,6 +91,7 @@ en:
         user_exist: "New user?"
         account_menu: "Account"
       error_show: "User not found!"
+      login_remember: "Remember me on this computer"
   error_message: "The form contains"
   base_title: "Ruby on Rails Tutorial Sample App"
   book_title: "Ruby on Rails Tutorial"
