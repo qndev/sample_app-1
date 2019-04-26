@@ -1,0 +1,12 @@
+<% provide:title, t("static_pages.users.index") %>
+<h1><%= t "static_pages.users.index" %></h1>
+
+<%= paginate %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <%= render @users %>
+  <% end %>
+</ul>
+
+<%= paginate %>
