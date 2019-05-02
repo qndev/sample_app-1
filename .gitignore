@@ -35,3 +35,4 @@
 
 # Ignore Spring files.
 /spring/*.pid
+/pulic/upload/tmp

@@ -26,10 +26,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by id: params[:id]
-
-    return if @user
-    redirect_to root_path
-    flash[:danger] = t("static_pages.users.error_show")
+    @microposts = @user.microposts.order("created_at DESC").page params[:page]
   end
 
   def edit
