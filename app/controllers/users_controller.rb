@@ -5,7 +5,10 @@ class UsersController < ApplicationController
   before_action :find_param, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.order(:name).page params[:page]
+    @users = User.order(:name).paginate(
+      page: params[:page],
+      per_page: Settings.user.per_page
+    )
   end
 
   def new
